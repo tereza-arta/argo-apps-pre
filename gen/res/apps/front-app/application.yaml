@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-app-f
+  namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: terezabisharyan/app-frontend
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/tereza-arta/helma-pre-f.git
+    targetRevision: main
+    path: environments/staging/my-app
+  destination:
+    server: https://kubernetes.default.svc
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: false
