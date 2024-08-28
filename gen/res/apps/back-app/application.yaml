@@ -10,7 +10,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/tereza-arta/helma-pre.git
+    repoURL: https://github.com/tereza-arta/back-3.git
     targetRevision: main
     path: environments/staging/my-app
   destination:
