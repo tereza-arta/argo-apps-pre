@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: my-app
+  name: app-back
   namespace: argocd
   annotations:
     argocd-image-updater.argoproj.io/image-list: terezabisharyan/app-backend
@@ -10,7 +10,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/tereza-arta/helma-pre.git
+    repoURL: https://github.com/tereza-arta/back-manifests.git
     targetRevision: main
     path: environments/staging/my-app
   destination:
